@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascipt Game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+  </head>
+  <body>
+    <header>
+      <p class="player">Player 1</p>
+      <p>Score: <span class="score"></span></p>
+    </header>
+
+    <main>
+      <!-- word board -->
+      <section class="board-holder">
+        <p class="board-holder__title">Spin a Fortune</p>
+        <div class="board">
+          <div class="board__square board__corner-square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square board__corner-square"></div>
+          <div class="board__square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square"></div>
+          <div class="board__square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square"></div>
+          <div class="board__square board__corner-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__letter-square"></div>
+          <div class="board__square board__corner-square"></div>
+        </div>
+
+        <!-- text topic/hint -->
+        <p id="hint" class="text-holder">Press <span class = "text-holder__underline">GAME</span> to begin and <span class = "text-holder__underline">SPIN</span> to start playing</p>
+      </section>
+
+      <!-- game/restart buttons -->
+      <div class="game-buttons">
+        <button class="game-buttons__push">Game</button>
+        <button class="game-buttons__restart">Restart</button>
+      </div>
+
+      <!-- text holder & buttons for game interaction -->
+      <p id="letter-points" class="text-holder">Press <span class = "text-holder__underline">KEYBOARD</span> to toggle keyboard <span class = "text-holder__underline">ON/OFF</span></p>
+      <div class="wheel-action">
+        <button class="wheel-action__hit">Spin</button>
+        <button class="wheel-action__keyboard-slidein">keyboard</button>
+      </div>
+
+      <!-- keyboard & wheel section -->
+      <section class="action">
+        <!-- spinning wheel, pointer and holder -->
+        <div class="wheel-box">
+          <div class="wheel-pointer"></div>
+          <img
+            src="Wheel_of_Fortune_-_Season_26_-_Round_4.svg"
+            class="wheelimage"
+          />
+        </div>
+        <!-- keyboard & its container -->
+        <div class="keyboard-holder">
+          <div class="keyboard">
+            <div class="keyboard__key">W</div>
+            <div class="keyboard__key">E</div>
+            <div class="keyboard__key">R</div>
+            <div class="keyboard__key">T</div>
+            <div class="keyboard__key">Q</div>
+            <div class="keyboard__key">Y</div>
+            <div class="keyboard__key">U</div>
+            <div class="keyboard__key">I</div>
+            <div class="keyboard__key">O</div>
+            <div class="keyboard__key">P</div>
+            <div class="keyboard__key">A</div>
+            <div class="keyboard__key">S</div>
+            <div class="keyboard__key">D</div>
+            <div class="keyboard__key">F</div>
+            <div class="keyboard__key">G</div>
+            <div class="keyboard__key">H</div>
+            <div class="keyboard__key">J</div>
+            <div class="keyboard__key">K</div>
+            <div class="keyboard__key">L</div>
+            <div class="keyboard__key">Z</div>
+            <div class="keyboard__key">X</div>
+            <div class="keyboard__key keyboard__blank-key"></div>
+            <div class="keyboard__key">C</div>
+            <div class="keyboard__key">V</div>
+            <div class="keyboard__key">B</div>
+            <div class="keyboard__key">N</div>
+            <div class="keyboard__key">M</div>
+            <div class="keyboard__key keyboard__blank-key"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/notie"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
