@@ -37,7 +37,7 @@ header {
   display: flex;
   justify-content: space-between;
   font-size: 1.3rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
 }
 
 .player {
@@ -50,7 +50,7 @@ header {
 
 .board-holder__title {
   text-align: center;
-  margin-top: 1.2rem;
+  //margin-top: 1.2rem;
   font-size: 2.5rem;
   font-weight: bold;
   font-family: "Righteous", cursive;
@@ -60,7 +60,7 @@ header {
 
 .action {
   width: 70vw;
-  margin: 20px auto;
+  margin: 1rem auto;
   position: relative;
 }
 
@@ -191,7 +191,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.7rem;
 }
 
 // buttons
@@ -200,7 +200,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.7rem;
 }
 
 .game-buttons__push,
