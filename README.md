@@ -22,3 +22,6 @@ Includes:
 --  built using Flexbox and Grid
 
 --  used Notie.js plugin to change appearance of alert box
+
+
+VISIT: https://tonylubin.github.io/JS---Quiz-Game/
