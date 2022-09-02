@@ -50,7 +50,7 @@ wordButton.addEventListener("click", () => {
     if (letters[i] !== " ") {
       letterSquare[i].style.backgroundColor = "#fff9f9";
       letterSquare[i].classList.add("board__letter-square--guess");
-      letterSquare[i].innerHTML = letters[i];
+      letterSquare[i].innerText = letters[i];
       letterSquare[i].style.color = "#fff9f9";
     } else {
       letterSquare[i].style.backgroundColor = "#5ce76c";
@@ -67,7 +67,7 @@ function clearBoard() {
   letterSquare.forEach((square) => {
     square.style.backgroundColor = "#5ce76c";
     square.classList.remove("letter-square_guess");
-    square.innerHTML = "";
+    square.innerText = "";
   });
 }
 
@@ -84,7 +84,7 @@ function keyboardReset() {
 
 function boardIndex() {
   for (let i = 0; i < letterSquare.length; i++) {
-    if (letterSquare[i].innerHTML !== "") {
+    if (letterSquare[i].innerText !== "") {
       boardArray.push(i);
     }
   }
@@ -124,7 +124,7 @@ key.forEach((letter) => {
   letter.addEventListener("click", () => {
     players[playerIndex].previousScore = +scorecard.innerText; // update previous-score
     boardArray.forEach((index) => {
-      if (letter.innerHTML === letterSquare[index].innerHTML) {
+      if (letter.innerText === letterSquare[index].innerText) {
         letterSquare[index].style.color = "#0a0707";
         players[playerIndex].score += pointsScore;
         boardArrayCopy.pop();
@@ -135,6 +135,7 @@ key.forEach((letter) => {
     players[playerIndex].updateScore();
     setTimeout(winCheck, 300);
     if(players[playerIndex].previousScore >= players[playerIndex].score){
+      warningAlert("Wrong Guess!<br>Round goes to the next player","error");
       playerTurns();
     }
   });
@@ -149,10 +150,10 @@ class Player {
     this.previousScore = previousScore;
   }
   updateScore() {
-    scorecard.innerHTML = this.score;
+    scorecard.innerText = this.score;
   }
   updatePlayerStatus() {
-    playerTitle.innerHTML = this.name;
+    playerTitle.innerText = this.name;
   }
 }
 
@@ -176,7 +177,7 @@ let playerIndex = 0;
 // check player score/turn
 
 function playerTurns() {
-    warningAlert("Wrong guess!<br>Round goes to the next player","error");  
+      
     if (players[playerIndex] === player1) {
       playerIndex = 1;
       players[playerIndex].updatePlayerStatus();
@@ -234,18 +235,18 @@ spinButton.addEventListener("click", () => {
 wheelImage.addEventListener("transitionend", () => {
   switch (pointsSegment) {
     case "You're bankrupt":
-      warningAlert(`${pointsSegment}`,"error");
+      warningAlert(`${pointsSegment}<br>Round goes to the next player`,"error");
       players[playerIndex].score = 0;
-      letterPointsIndicator.innerHTML = pointsSpin[11];
+      letterPointsIndicator.innerText = pointsSpin[11];
       setTimeout(playerTurns, 500);
       break;
     case "You lose a turn":
-      warningAlert(`${pointsSegment}`,"error");
-      letterPointsIndicator.innerHTML = pointsSpin[7];
+      warningAlert(`${pointsSegment}<br>Round goes to the next player`,"error");
+      letterPointsIndicator.innerText = pointsSpin[7];
       setTimeout(playerTurns, 500);
       break;
     default:
-      letterPointsIndicator.innerHTML = `Guess a letter for ${pointsSegment} points each`;
+      letterPointsIndicator.innerText = `Guess a letter for ${pointsSegment} points each`;
   }
 
   if (typeof pointsSegment !== "string") {
