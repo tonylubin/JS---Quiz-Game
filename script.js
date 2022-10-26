@@ -104,7 +104,7 @@ const warningAlert = (text,type) => {
 
 // winning check for round & overall game
 
-const winCheck = () => {
+const winCheck = async () => {
   if (boardArrayCopy.length === 0 && dataCopy.length === 0) {
     if(player1.score === player2.score) {
       warningAlert("It's a drawn game!!!","success")
@@ -121,7 +121,7 @@ const winCheck = () => {
 // onscreen keyboard function
 
 key.forEach((letter) => {
-  letter.addEventListener("click", () => {
+  letter.addEventListener("click", async () => {
     players[playerIndex].previousScore = +scorecard.innerText; // update previous-score
     boardArray.forEach((index) => {
       if (letter.innerText === letterSquare[index].innerText) {
@@ -133,10 +133,10 @@ key.forEach((letter) => {
     letter.style.color = "transparent"; 
     letter.style.backgroundColor = "transparent";
     players[playerIndex].updateScore();
-    setTimeout(winCheck, 300);
+    await winCheck();
     if(players[playerIndex].previousScore >= players[playerIndex].score){
       warningAlert("Wrong Guess!<br>Round goes to the next player","error");
-      playerTurns();
+      await playerTurns();
     }
   });
 });
@@ -176,7 +176,7 @@ let playerIndex = 0;
 
 // check player score/turn
 
-function playerTurns() {
+async function playerTurns() {
       
     if (players[playerIndex] === player1) {
       playerIndex = 1;
@@ -232,18 +232,18 @@ spinButton.addEventListener("click", () => {
   pointsSegment = pointsSpin[wheelSegment];
 });
 
-wheelImage.addEventListener("transitionend", () => {
+wheelImage.addEventListener("transitionend", async () => {
   switch (pointsSegment) {
     case "You're bankrupt":
       warningAlert(`${pointsSegment}<br>Round goes to the next player`,"error");
       players[playerIndex].score = 0;
       letterPointsIndicator.innerText = pointsSpin[11];
-      setTimeout(playerTurns, 500);
+      await playerTurns();
       break;
     case "You lose a turn":
       warningAlert(`${pointsSegment}<br>Round goes to the next player`,"error");
       letterPointsIndicator.innerText = pointsSpin[7];
-      setTimeout(playerTurns, 500);
+      await playerTurns();
       break;
     default:
       letterPointsIndicator.innerText = `Guess a letter for ${pointsSegment} points each`;
